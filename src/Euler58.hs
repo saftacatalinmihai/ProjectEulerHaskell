@@ -1,11 +1,9 @@
 module Euler58 where
 import Primes
 
--- main = print test
---
--- test = find_first
+main = print test
 
-x |> f = f x
+test = 26241 == find_first
 
 next_corner_nums (side_l, (h:rest), primes) =
     (next_side_l, corner_nums ++ (h:rest), just_primes ++ primes)
@@ -23,6 +21,6 @@ prime_ratio (side_l, _, primes )  =
 corner_nums = (2, [9,7,5,3], [7,5,3]) : map (\cn -> next_corner_nums cn)  corner_nums
 
 find_first =
-    l
+    l + 1
     where
-        (l, _, _) = head $ reverse $ takeWhile (\l -> prime_ratio l > 0.1) corner_nums
+        (l, _, _) = head $ dropWhile (\l -> (prime_ratio l) > 0.1) corner_nums
