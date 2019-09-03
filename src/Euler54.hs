@@ -9,6 +9,7 @@ import Primes
 
 main = print test
 
+
 test = 1 == 1
 
 card num suite = (num, suite)
